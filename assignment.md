@@ -9,18 +9,18 @@ Pythagorean Theory: The following relationships hold true for all triangles:
 ```
 
 ### Overview
-In this assignment, you need to write a series of MIPS programs.  Each of these programs build upon each other by using an additional feature of assembly program.  These additional features include:
+In this assignment, you need to write a series of MIPS programs.  Each of these programs build upon each other by using an additional feature of assembly programming. These additional features include:
 
  * Use of an if-then-else construct
  * Use multiple if-then-else constructs together
  * Use of a do-while construct and macros
  * Use of subroutines (provided and user-defined)
- * Use of a outer while loop to read stdin
+ * Use of a outer loop to read stdin
 
-For each of these programs, you must provided a ``git tag``.  This tag will allow a user to checkout your program and to run it --- all from the same repository.  
+For each of these programs, you must provided a ``git tag``. This tag will allow a user to checkout your program, at various stages of development, and to run it --- all from the same repository. 
 
 ## Process
-You will write your program in 5 distinct phases. The Professor will be testing each of your phases via the "checkout" feature of git.  As such, you will need to add a "tag" to the final version of your code for each and every phase.
+You will write your program in 5 distinct phases. The Professor will be testing each of your phases via the "checkout" feature of git. As such, you will need to add a "tag" to the final version of your code for each and every phase.
 
 You need to complete the following steps during each phase of this assignment.
 
@@ -36,16 +36,16 @@ The Professor will later perform the following steps:
   1. ``git checkout <tag>``: to get the version of the code associated with a specific tag.
   1. ``make <tag>_test``: to test your program
 
-You can also perform a ``git checkout <tag>`` at anytime to view the final version of your code for a particular phase.[^readonly]  Running the command ``git checkout``, will reset your version to be the newest version of your repository.
+You can also perform a ``git checkout <tag>`` at anytime to view the final version of your code for a particular phase.[^readonly]  Running the command ``git checkout`` will reset your version to be the newest version of your repository.
 
 [^readonly]: You should consider this version to be a read-only version. As you learn more about ``git``, this limitation can be removed.  But for now... just consider it as a read-only version.
 
 ## Due Dates:
-A separate due date will be provided for each phase.  The following due dates are subject to change, and such changes will announced in slack and via the assignment.md file.
+A separate due date will be provided for each phase.  The following due dates are provided to scheduled your time effectively.  These dates are subject to change, based upon the progress we make in class.  Such changes will announced in slack and via the assignment.md file.
 
-   1. Due: April 12 @ Midnight: Is Right Triangle
-   1. Due: April 14 @ Midnight: Type of Triangle
-   1. Due: April 17 @ Midnight: Approximate the Hypotenuse
+   1. Due: April 14 @ Midnight: Is Right Triangle
+   1. Due: April 17 @ Midnight: Type of Triangle
+   1. Due: April 19 @ Midnight: Approximate the Hypotenuse
    1. Due: April 21 @ Midnight: Evaluate the Hypotenuse
    1. Due: April 24 @ Midnight: Series of Triangles
 
@@ -60,7 +60,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       export MARS_JAR=$HOME/Desktop/classes/comp122/mars-mips/mars/Mars4_5.jar
       alias mars="java -jar ${MARS_JAR} $*"
       ```
-      If you choice to setup your laptop for COMP122 other than the way I prescribed in the first week of the class, you will need to update the lines above accordingly.
+      If you choose to setup your laptop for COMP122 other than the way I prescribed in the first week of the class, you will need to update the lines above accordingly.
 
    1. Launch MARS IDE as follows:
       ```
@@ -71,7 +71,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
    1. Update your MARS environment, via the setting section. Use the following .png file to ensure you have the appropriate options set.
 
-     ![MARS Settings](mars-setting.png)
+      ![MARS Settings](mars-settings.png)
 
 
    1. Launch MARS program the command line
@@ -82,7 +82,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
 
 
-## Phases- Overview:
+## Phases-Overview:
    1. Is Right Triangle:
       * Inputs: a, b, c
       * Evaluates the equation: ``a^2 + b^2 == c^2``
@@ -128,16 +128,16 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       * Revised Output: "a ^2 + b ^2 \~= c^2" 
       * Tag: series
 
-## Phases- Description
+## Phases-Description:
 
 ### Is Right Triangle:
-During class, the professor walked you through the elements of the program.  Depending on which class you attend, the Professor used a different technique.  Use the code from your notes to get your initial program started.  The four versions of the code is located in:
+During classtime, the professor walked you through the elements of the program.  Depending on which class you attend, the Professor used a different technique.  Use the code from your notes to get your initial program started.  The four versions of the code, from the four class sessions, are located in:
 
    ```
    comp122/deliverables/32-pythegorean/starter_code
    ```
 
-You may use the provided ``pythegorena.s`` file to as a starting point.
+You may use the provided ``pythegorena.s`` file to as a starting point. It includes some initial comments and some setup code.
 
 The elements of the program were:
    1. read three unsigned 8-bit integers using the read_int syscall
@@ -146,10 +146,12 @@ The elements of the program were:
    1. construct an if-then-else control flow, where the Boolean test is:
       `` X == Y``
    1. print the appropriate string via the write_string syscall
-   1. terminate the program via the halt syscall
+      * print "True!" if the Boolean test is true.
+      * print "False!" if the Boolean test is false.
+   1. terminate the program via the exit syscall
 
 ### Type of Triangle:
-In the next version of the program, you are to modify the output of the program based upon the comparison of X and Y. You could model the following Java code you to solve your problem.
+In the next version of the program, you are to modify the output of the program based upon the comparison of X and Y. You can model code using the following Java code.
 
   ```
   if (X == Y) { System.out.printf("Right!\n") }
@@ -157,7 +159,7 @@ In the next version of the program, you are to modify the output of the program 
   if (X > Y)  { System.out.printf("Obtuse!\n") }
   ```
 
-You can, of course, restructure your program to make it more readable. Or you could make it a bit more efficient by computing the difference between X and Y. Then you would select the appropriate output based the value of the difference.
+You can, of course, restructure your program differently to make it more readable or more efficient.  One alternative is to compute the difference between X and Y.  Then you can select the appropriate output based the value of the difference.
 
    ```
    if diff is negative, then ...
@@ -167,20 +169,46 @@ You can, of course, restructure your program to make it more readable. Or you co
 
 
 ### Approximate the Hypotenuse
-In the next version of the program, you are to modify the program to only have two input values: a and b.  Then via a do-while loop, you need to approximate the value of "c", where the resulting triangle approximates a right triangle. 
+In the next version of the program, you are to modify the program to only have two input values: a and b.  You must also approximate the value for "c" associated with a right triangle. The valid range for "c" is between max(a,b) and (a+b).  
 
-The valid range for c is between max(a,b) and (a+b).  
 
-In this version, you must also create a macro call "max" to make your program more readable.  
+You may use either a while loop, a do-while loop, a for loop. The pseudo code for these loops are as follows:
+
+  ```
+  c = max(a,b);
+  Y = 0;
+  while (Y < X) {
+     Y = c * c;
+     c ++;
+  }
+  ```
+
+  ```
+  c = max(a,b);
+  do {
+    c ++;
+    Y = c * c;
+  } while ( Y < X )
+  ```
+
+  ```
+  for (c = max(a,b), Y = 0; Y < X; c++) {
+    Y = c * c;
+  }
+  ```
+
+In this version of your program, you must also create a macro call "max" to make your program more readable.  
 
 
 ### Evaluate the Hypotenuse
-In the next version of the program, you need to refactor your program to confirm to the following conditions:
+In the next version of the program, you need to refactor your program to conform to the following conditions:
    1. utilize the syscall macros to make your program more readable.
    1. utilize the isqrt() subroutine. 
-   1. define the subroutine hypotenuse(a, b)
+   1. define the subroutine hypotenuse(a, b).
 
-As such, your program should be structured as follows:
+Under this version of your program, you need to exercise subroutine calling, which requires you to save and restore registers. Remember, registers are shared by *all* subroutines.  
+
+As such, your program is to be structured as follows:
 
   ```
   main: nop
@@ -197,6 +225,8 @@ As such, your program should be structured as follows:
 
         # Handle the outputs, etc
         # ....
+
+        exit()
 
 
   hypotenuse:
@@ -216,9 +246,12 @@ As such, your program should be structured as follows:
        jr $ra
   ```
 
-In this version, you do may simplify the MIPS subroutine call-convention for subroutine calling by making sure you don't share registers. Hence, you will need to allocate a set of registers to each of your subroutines: main, hypotenuse, and isqrt.  
+Ideally, you should follow the MIPS convention for subroutine calling. You may, however, simply things by taking steps to allocated a subset of registers to each subroutine.  (This includes the "isqrt()" subroutine.)  
 
-You may, of course, follow the MIPS subroutine call-convention to ensure your three subroutines can be written independently from each other.
+The downside of allocating specific registers to specific subroutines, you *cannot* develop your subroutines independently.  As such, such an approach is looked down upon.
+
+In either case, you should better understand why such a convention exists, which is the point of this phase.
+
 
 ### Series of Triangles
 In this final version of the program, you need to refactor just the "main" subroutine to iterate over a series of inputs.  Here you should use a loop to process the input.
