@@ -38,7 +38,8 @@ The Professor will later perform the following steps:
 
 You can also perform a ``git checkout <tag>`` at anytime to view the final version of your code for a particular phase.[^readonly]  Running the command ``git checkout main`` will reset your version to be the newest version of your repository.
 
-[^readonly]: You should consider this version to be a read-only version. As you learn more about ``git``, this limitation can be removed.  But for now... just consider it as a read-only version.
+[^readonly]: You should consider this version to be a read-only version. As you learn more about ``git``, this limitation can be removed.  But for now... just consider it read-only.
+
 
 ## Due Dates:
 A separate due date will be provided for each phase.  The following due dates are provided to help you scheduled your time effectively.  These dates are subject to change, based upon the progress we make in class.  Such changes will be announced in slack and via the assignment.md file.
@@ -53,7 +54,7 @@ A separate due date will be provided for each phase.  The following due dates ar
 ## MARS Notes:
 You can use MARS both as a command-line tool and as a IDE.  To facilitate the use of MARS, make sure you:
 
-   1. Update you \~/.profile file to allow you to launch MARS from the command-line.<br>
+   1. Update you \~/.profile file to allow you to launch MARS IDE from the command-line.<br>
       Add the following lines the your \~/.profile.
       ```
       alias comp122='cd ~/Desktop/classes/comp122'
@@ -66,7 +67,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
       # launch a terminal
       comp122                             # goto your comp122 folder
-      cd deliverables/32-pythegorean      # navigate to the assignment folder
+      cd deliverables/32-pythagorean      # navigate to the assignment folder
       mars                                # launch MARS
       ```
    1. Update your MARS environment, via the Setting Section. Use the following .png file to ensure you have the appropriate options checked.
@@ -78,7 +79,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
       # launch a terminal
       # navigate to the correct folder
-      mars pythagorean.s                  # assembly and execute the pythegorean.s project
+      mars pythagorean.s                  # assembly and execute the pythagorean.s project
       ```
 
 
@@ -118,14 +119,14 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       * Determines the value of "c" via the subroutine: <br>
         ``c = hypotenuse(a,b)``
       * Uses the ``c = isqrt(X)`` subroutine to compute the square root of X
-      * Outputs: "The computed value of c is: " c
+      * Outputs: "The computed integer value of c is: " c
       * Tag: computed_hypotenuse
 
    1. Series of Triangles
       * Inputs: a series of a's and b's
         - "Evaluates the Hypotenuse" 
         - Terminates when the input pair is "0" and "0"
-      * Revised Output: "a ^2 + b ^2 \~= c^2" 
+      * Revised Output:``a^2 + b^2 ~= c^2``
       * Tag: series
 
 ## Phases-Description:
@@ -169,10 +170,18 @@ You may restructure your program differently to make it more readable or more ef
 
 
 ### Approximate the Hypotenuse
-In the next version of the program, you are to modify the program to only have two input values: a and b.  You must also approximate the value for "c" associated with a right triangle. The valid range for "c" is between max(a,b) and (a+b).  
+In the next version of the program, you are to modify the program to only have two input values: a and b.  You must also approximate the value for "c" associated with a right triangle. The valid range for "c" is between max(a,b) and (a+b).  The following for loop illustrates how we can determine the value for "c".
 
-You may use either a while loop, a do-while loop, a for loop. The pseudo code for these loops are as follows:
+  ```
+  for c in max(a,b) .. (a+b) ; do 
+     Y = c * c;
+     if (Y >= X) break;
+  done
+  ```
 
+You may use either any loop of your choosing to determine the approximate value of C.  The pseudo code for a while loop, a do-while loop, a for loop are provided.
+
+While Loop:
   ```
   c = max(a,b);
   Y = 0;
@@ -182,6 +191,7 @@ You may use either a while loop, a do-while loop, a for loop. The pseudo code fo
   }
   ```
 
+Do-While Loop:
   ```
   c = max(a,b);
   do {
@@ -190,6 +200,7 @@ You may use either a while loop, a do-while loop, a for loop. The pseudo code fo
   } while ( Y < X )
   ```
 
+For Loop:
   ```
   for (c = max(a,b), Y = 0; Y < X; c++) {
     Y = c * c;
@@ -205,7 +216,7 @@ In the next version of the program, you need to refactor your program to conform
    1. utilize the isqrt() subroutine. 
    1. define the subroutine hypotenuse(a, b).
 
-Under this version of your program, you need to exercise subroutine calling, which requires you to save and restore registers. Remember, registers are shared by *all* subroutines.  
+Under this version of your program, you need to exercise subroutine calling, which requires you to save and restore registers. Remember, registers are shared by *all* subroutines.  Hence, there is a need to save and restore registers at strategic points.
 
 As such, your program is to be structured as follows:
 
@@ -276,4 +287,89 @@ The general flow of your "main" subroutine should be:
    loop_end:  
 
   ```
+
+### Testing Steps
+
+1. Navigate to the correct directory and obtain the most recent version of the repo
+   ```
+   comp122
+   cd deliverables/32-pythagorean
+   git pull
+   ```
+
+1. Test each individual phase
+   1. Is Right Triangle:
+      * Commands and Inputs:
+      ```
+      git checkout is_right
+      mars pythagorean.s
+      3
+      4
+      5
+      ```
+      * Output:
+      ```
+      True!
+      ```
+   1. Type of Triangle:
+      * Commands and Inputs:
+      ```
+      git checkout angle_type
+      mars pythagorean.s
+      3
+      4
+      6
+      ```
+      * Output:
+      ```
+      Obtuse!
+      ```
+
+
+   1. Approximate the Hypotenuse
+      * Commands and Inputs:
+      ```
+      git checkout approximated_hypotenuse
+      mars pythagorean.s
+      3
+      4
+      ```
+      * Output:
+      ```
+      Nearest right-triangle is where the hypotenuse is: 5
+      ```
+
+
+   1. Evaluate the Hypotenuse
+      * Commands and Inputs:
+      ```
+      git checkout computed_hypotenuse
+      mars pythagorean.s
+      5
+      12
+      ```
+      * Output:
+      ```
+      "The computed integer value of c is: " 13
+      ```
+
+
+   1. Series of Triangles
+      * Commands and Inputs:
+      ```
+      git checkout computed_hypotenuse
+      mars pythagorean.s
+      5
+      12
+      8 
+      15
+      0
+      0
+      ```
+      * Output:
+      ```
+      5^2 + 12^2 ~= 13^2
+      8^2 + 15^2 ~= 17^2
+      ```
+
 
