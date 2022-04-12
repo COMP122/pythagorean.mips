@@ -67,7 +67,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
       # launch a terminal
       comp122                             # goto your comp122 folder
-      cd deliverables/32-pythagorean      # navigate to the assignment folder
+      cd deliverables/41-pythagorean      # navigate to the assignment folder
       mars                                # launch MARS
       ```
    1. Update your MARS environment, via the Setting Section. Use the following .png file to ensure you have the appropriate options checked.
@@ -135,7 +135,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
 During class time, the professor walked you through the elements of the program.  Depending on which class you attend, the Professor used a different technique.  Use the code from your notes to get your initial program started.  The four versions of the code, from the four class sessions, are provided for comparison and are located in:
 
    ```
-   comp122/deliverables/32-pythegorean/starter_code
+   comp122/deliverables/41-pythegorean/starter_code
    ```
 
 You may use the provided ``pythegorena.s`` file as a starting point. It includes some initial comments and some setup code.
@@ -293,7 +293,7 @@ The general flow of your "main" subroutine should be:
 1. Navigate to the correct directory and obtain the most recent version of the repo
    ```
    comp122
-   cd deliverables/32-pythagorean
+   cd deliverables/41-pythagorean
    git pull
    ```
 
