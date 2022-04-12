@@ -9,18 +9,18 @@ Pythagorean Theory: The following relationships hold true for all triangles:
 ```
 
 ### Overview
-In this assignment, you need to write a series of MIPS programs.  Each of these programs build upon each other by using an additional feature of assembly programming. These additional features include:
+In this assignment, you need to write a series of MIPS programs.  Each of these programs build upon each other by using an additional items associated with assembly programming. These additional items include:
 
  * Use of an if-then-else construct
- * Use multiple if-then-else constructs together
- * Use of a do-while construct and macros
+ * Use of multiple if-then-else constructs together
+ * Use of a loop construct and macros
  * Use of subroutines (provided and user-defined)
  * Use of a outer loop to read stdin
 
 For each of these programs, you must provided a ``git tag``. This tag will allow a user to checkout your program, at various stages of development, and to run it --- all from the same repository. 
 
 ## Process
-You will write your program in 5 distinct phases. The Professor will be testing each of your phases via the "checkout" feature of git. As such, you will need to add a "tag" to the final version of your code for each and every phase.
+You will write your programs in 5 distinct phases. The Professor will be testing each of your phases via the "checkout" feature of git. As such, you will need to add a "tag" to the final version of your code for each and every phase.
 
 You need to complete the following steps during each phase of this assignment.
 
@@ -28,7 +28,7 @@ You need to complete the following steps during each phase of this assignment.
      * i.e., edit, test, ``git add``, ``git commit``, ``git push``
   1. When you complete a phase, 
      1. add the associated tag: ``git tag <tag>``
-     1. push your tag: ``git push origin --tags``
+     1. push your tag to the remote repo: ``git push origin --tags``
 
 The Professor will later perform the following steps:
 
@@ -41,7 +41,7 @@ You can also perform a ``git checkout <tag>`` at anytime to view the final versi
 [^readonly]: You should consider this version to be a read-only version. As you learn more about ``git``, this limitation can be removed.  But for now... just consider it as a read-only version.
 
 ## Due Dates:
-A separate due date will be provided for each phase.  The following due dates are provided to scheduled your time effectively.  These dates are subject to change, based upon the progress we make in class.  Such changes will announced in slack and via the assignment.md file.
+A separate due date will be provided for each phase.  The following due dates are provided to help you scheduled your time effectively.  These dates are subject to change, based upon the progress we make in class.  Such changes will be announced in slack and via the assignment.md file.
 
    1. Due: April 14 @ Midnight: Is Right Triangle
    1. Due: April 17 @ Midnight: Type of Triangle
@@ -69,7 +69,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       cd deliverables/32-pythegorean      # navigate to the assignment folder
       mars                                # launch MARS
       ```
-   1. Update your MARS environment, via the setting section. Use the following .png file to ensure you have the appropriate options set.
+   1. Update your MARS environment, via the Setting Section. Use the following .png file to ensure you have the appropriate options checked.
 
       ![MARS Settings](mars-settings.png)
 
@@ -78,7 +78,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       ```
       # launch a terminal
       # navigate to the correct folder
-      mars pythegorena.s                  # assembly and execute the pythegorena.s project
+      mars pythagorean.s                  # assembly and execute the pythegorean.s project
       ```
 
 
@@ -104,7 +104,7 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
    1. Approximate the Hypotenuse
       * Inputs: a, b
       * Evaluates the equation: ``a^2 + b^2``
-      * Via a do-while over "d" where ``c = max(a,b) .. (a+b)``, <br>
+      * Via a loop of "c" where ``c = max(a,b) .. (a+b)``, <br>
         determines the smallest value of "c", where
         ```
         a^2 + b^2 >= c^2
@@ -117,12 +117,12 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
       * Inputs: a, b
       * Determines the value of "c" via the subroutine: <br>
         ``c = hypotenuse(a,b)``
-      * Uses the ``c = isqrt(c^2)`` subroutine
+      * Uses the ``c = isqrt(X)`` subroutine to compute the square root of X
       * Outputs: "The computed value of c is: " c
       * Tag: computed_hypotenuse
 
    1. Series of Triangles
-      * Inputs:  a series of: a and b
+      * Inputs: a series of a's and b's
         - "Evaluates the Hypotenuse" 
         - Terminates when the input pair is "0" and "0"
       * Revised Output: "a ^2 + b ^2 \~= c^2" 
@@ -131,13 +131,13 @@ You can use MARS both as a command-line tool and as a IDE.  To facilitate the us
 ## Phases-Description:
 
 ### Is Right Triangle:
-During classtime, the professor walked you through the elements of the program.  Depending on which class you attend, the Professor used a different technique.  Use the code from your notes to get your initial program started.  The four versions of the code, from the four class sessions, are located in:
+During class time, the professor walked you through the elements of the program.  Depending on which class you attend, the Professor used a different technique.  Use the code from your notes to get your initial program started.  The four versions of the code, from the four class sessions, are provided for comparison and are located in:
 
    ```
    comp122/deliverables/32-pythegorean/starter_code
    ```
 
-You may use the provided ``pythegorena.s`` file to as a starting point. It includes some initial comments and some setup code.
+You may use the provided ``pythegorena.s`` file as a starting point. It includes some initial comments and some setup code.
 
 The elements of the program were:
    1. read three unsigned 8-bit integers using the read_int syscall
@@ -151,7 +151,7 @@ The elements of the program were:
    1. terminate the program via the exit syscall
 
 ### Type of Triangle:
-In the next version of the program, you are to modify the output of the program based upon the comparison of X and Y. You can model code using the following Java code.
+In the next version of the program, you are to modify the output of the program based upon the comparison of X and Y. You can model your code using the following Java code.
 
   ```
   if (X == Y) { System.out.printf("Right!\n") }
@@ -159,7 +159,7 @@ In the next version of the program, you are to modify the output of the program 
   if (X > Y)  { System.out.printf("Obtuse!\n") }
   ```
 
-You can, of course, restructure your program differently to make it more readable or more efficient.  One alternative is to compute the difference between X and Y.  Then you can select the appropriate output based the value of the difference.
+You may restructure your program differently to make it more readable or more efficient.  One such alternative is to compute the difference between X and Y.  Then you can select the appropriate output based the value of the difference.
 
    ```
    if diff is negative, then ...
@@ -170,7 +170,6 @@ You can, of course, restructure your program differently to make it more readabl
 
 ### Approximate the Hypotenuse
 In the next version of the program, you are to modify the program to only have two input values: a and b.  You must also approximate the value for "c" associated with a right triangle. The valid range for "c" is between max(a,b) and (a+b).  
-
 
 You may use either a while loop, a do-while loop, a for loop. The pseudo code for these loops are as follows:
 
@@ -197,7 +196,7 @@ You may use either a while loop, a do-while loop, a for loop. The pseudo code fo
   }
   ```
 
-In this version of your program, you must also create a macro call "max" to make your program more readable.  
+You should select the type of loop that results in MIPS code that the best from a readability standpoint.  In this version of your program, you must also create a macro call "max" to make your program more readable.  
 
 
 ### Evaluate the Hypotenuse
@@ -246,11 +245,11 @@ As such, your program is to be structured as follows:
        jr $ra
   ```
 
-Ideally, you should follow the MIPS convention for subroutine calling. You may, however, simply things by taking steps to allocated a subset of registers to each subroutine.  (This includes the "isqrt()" subroutine.)  
+Ideally, you should follow the MIPS convention for subroutine calling. You may, however, simplify things by taking steps to allocated a subset of registers to each subroutine.  (This includes the "isqrt()" subroutine.)  
 
-The downside of allocating specific registers to specific subroutines, you *cannot* develop your subroutines independently.  As such, such an approach is looked down upon.
+The downside of allocating specific registers to specific subroutines is that you *cannot* develop your subroutines independently.  As such, such an approach is looked down upon.  But for this assignment, it is acceptable.
 
-In either case, you should better understand why such a convention exists, which is the point of this phase.
+In either approach, you should better understand why such a convention exists, which is the point of this phase.
 
 
 ### Series of Triangles
