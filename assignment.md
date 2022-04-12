@@ -36,7 +36,7 @@ The Professor will later perform the following steps:
   1. ``git checkout <tag>``: to get the version of the code associated with a specific tag.
   1. ``make <tag>_test``: to test your program
 
-You can also perform a ``git checkout <tag>`` at anytime to view the final version of your code for a particular phase.[^readonly]  Running the command ``git checkout`` will reset your version to be the newest version of your repository.
+You can also perform a ``git checkout <tag>`` at anytime to view the final version of your code for a particular phase.[^readonly]  Running the command ``git checkout main`` will reset your version to be the newest version of your repository.
 
 [^readonly]: You should consider this version to be a read-only version. As you learn more about ``git``, this limitation can be removed.  But for now... just consider it as a read-only version.
 
