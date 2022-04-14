@@ -3,9 +3,9 @@
 ```
 Pythagorean Theory: The following relationships hold true for all triangles:
 
-   a^2 + b^2 < c^2, if it is an acute triangle
+   a^2 + b^2 < c^2, if it is an obtuse triangle
    a^2 + b^2 = c^2, if it is a right triangle
-   a^2 + b^2 > c^2, if it is an obtuse triangle
+   a^2 + b^2 > c^2, if it is an acute triangle
 ```
 
 ### Overview
@@ -156,8 +156,8 @@ In the next version of the program, you are to modify the output of the program 
 
   ```
   if (X == Y) { System.out.printf("Right!\n") }
-  if (X < Y)  { System.out.printf("Acute!\n") }
-  if (X > Y)  { System.out.printf("Obtuse!\n") }
+  if (X < Y)  { System.out.printf("Obtuse!\n") }
+  if (X > Y)  { System.out.printf("Acute!\n") }
   ```
 
 You may restructure your program differently to make it more readable or more efficient.  One such alternative is to compute the difference between X and Y.  Then you can select the appropriate output based the value of the difference.
