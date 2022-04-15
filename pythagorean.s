@@ -23,8 +23,10 @@
 #    Inputs: reads a serics of a, b, and for each pair generates an output
 #    Outputs: "a ^2 + b ^2 \~= c^2" 
 
-		# .include "include/syscall_macros.s"
-		# .include "include/isqrt.s"
+		 #.globl	main
+		
+		 #.include "include/syscall_macros.s"
+		 #.include "include/isqrt.s"
 
 		.data
 	              # Insert any global varaibles here
