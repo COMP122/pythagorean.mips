@@ -302,7 +302,7 @@ The general flow of your "main" subroutine should be:
       * Commands and Inputs:
       ```
       git checkout is_right
-      mars pythagorean.s
+      mars pythagorean.s sm
       3
       4
       5
@@ -311,11 +311,14 @@ The general flow of your "main" subroutine should be:
       ```
       True!
       ```
+      * Note the "sm" in the commandline to MARS.  This instructs MARS to "s"tart the execution at the "m"ain subroutine.  Otherwise, MARS will execute the code associated with the very first label in your file.
+
+
    1. Type of Triangle:
       * Commands and Inputs:
       ```
       git checkout angle_type
-      mars pythagorean.s
+      mars pythagorean.s sm
       3
       4
       6
@@ -330,7 +333,7 @@ The general flow of your "main" subroutine should be:
       * Commands and Inputs:
       ```
       git checkout approximated_hypotenuse
-      mars pythagorean.s
+      mars pythagorean.s sm
       3
       4
       ```
@@ -344,7 +347,7 @@ The general flow of your "main" subroutine should be:
       * Commands and Inputs:
       ```
       git checkout computed_hypotenuse
-      mars pythagorean.s
+      mars pythagorean.s sm
       5
       12
       ```
@@ -358,7 +361,7 @@ The general flow of your "main" subroutine should be:
       * Commands and Inputs:
       ```
       git checkout computed_hypotenuse
-      mars pythagorean.s
+      mars pythagorean.s sm
       5
       12
       8 
